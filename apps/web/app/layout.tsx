@@ -107,7 +107,6 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   const h = await headers();
 
   const fullUrl = h.get("x-url") ?? "";
-  const nonce = h.get("x-csp") ?? "";
 
   const isSSG = !fullUrl;
 
@@ -119,21 +118,13 @@ export default async function RootLayout({ children }: { children: React.ReactNo
 
   return (
     <html
-      className="notranslate"
+      className={`notranslate ${interFont.variable} ${calFont.variable}`}
       translate="no"
       lang={locale}
       dir={direction}
       style={embedColorScheme ? { colorScheme: embedColorScheme as string } : undefined}
       suppressHydrationWarning
       data-nextjs-router="app">
-      <head nonce={nonce}>
-        <style>{`
-          :root {
-            --font-inter: ${interFont.style.fontFamily.replace(/\'/g, "")};
-            --font-cal: ${calFont.style.fontFamily.replace(/\'/g, "")};
-          }
-        `}</style>
-      </head>
       <body
         className="dark:bg-default bg-subtle antialiased"
         style={
