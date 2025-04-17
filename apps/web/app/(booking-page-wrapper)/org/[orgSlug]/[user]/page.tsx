@@ -41,8 +41,8 @@ export const generateMetadata = async ({ params, searchParams }: PageProps) => {
         `/${decodedParams.user}`
       )),
       robots: {
-        index: isSEOIndexable,
-        follow: isSEOIndexable,
+        index: isSEOIndexable || false,
+        follow: isSEOIndexable || false,
       },
     };
   } else {
@@ -70,8 +70,8 @@ export const generateMetadata = async ({ params, searchParams }: PageProps) => {
         getOrgFullOrigin(entity.orgSlug ?? null)
       )),
       robots: {
-        index: allowSEOIndexing,
-        follow: allowSEOIndexing,
+        index: allowSEOIndexing || false,
+        follow: allowSEOIndexing || false,
       },
     };
   }

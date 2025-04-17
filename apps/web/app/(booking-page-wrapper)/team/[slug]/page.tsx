@@ -36,8 +36,8 @@ export const generateMetadata = async ({ params, searchParams }: _PageProps) => 
   return {
     ...metadata,
     robots: {
-      follow: isSEOIndexable,
-      index: isSEOIndexable,
+      follow: isSEOIndexable || false,
+      index: isSEOIndexable || false,
     },
   };
 };

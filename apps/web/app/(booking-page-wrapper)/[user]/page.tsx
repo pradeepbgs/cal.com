@@ -39,8 +39,8 @@ export const generateMetadata = async ({ params, searchParams }: PageProps) => {
   return {
     ...metadata,
     robots: {
-      follow: allowSEOIndexing,
-      index: allowSEOIndexing,
+      follow: allowSEOIndexing || false,
+      index: allowSEOIndexing || false,
     },
   };
 };
